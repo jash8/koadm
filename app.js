@@ -11,20 +11,6 @@ app.use(async(ctx) => {
   await connet()
   initSchemas()
 
-  let userModel = mongoose.model('users')
-
-  let newUser = new userModel({
-    userName:"Bssey5",
-    password:"1234568",
-  })
-
-  newUser.save().then(()=>{
-    console.log('success')
-  }).catch((error)=>{
-    console.dir(error)
-  })
-
-
 
 })()
 
