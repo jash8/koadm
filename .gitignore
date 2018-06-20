@@ -1,0 +1,4 @@
+#忽略不要传到github的文件
+
+/node_modules
+/package-lock.json
