@@ -5,7 +5,7 @@ let router = new Router()
 
 
 router.get('/',(ctx)=>{
-  ctx.body="首页"
+  ctx.body="用户首页"
 })
 
 router.get('/register',(ctx)=>{
