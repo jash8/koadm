@@ -1,29 +1,32 @@
 const Koa = require('koa')
 const app = new Koa()
+
 const mongoose= require('mongoose')
 const {connet,initSchemas} = require('./dataBase/init')
+
 const Router = require('koa-router')
 const user = require('./routes/user')
-const bodyParser = require('koa-bodyparser')
+const home = require('./routes/home')
 
+const bodyParser = require('koa-bodyparser')
+const cors = require('koa2-cors')
 
 let router = new Router()
 
-router.get('/',(ctx)=>{
-  ctx.body='首页'
-})
 
 router.use('/user',user.routes())
+router.use('/home',home.routes())
 
 app.use(bodyParser())
+app.use(cors())
 
 app.use(router.routes())
 app.use(router.allowedMethods())
 
 
-// ;(async ()=>{
-//   await connet()
-//   initSchemas()
+;(async ()=>{
+  await connet()
+  initSchemas()
 
 //   let userModel = mongoose.model('users')
 
@@ -40,7 +43,7 @@ app.use(router.allowedMethods())
 
 
 
-// })()
+})()
 
 
 app.listen(3000, () => {
