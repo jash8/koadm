@@ -2,7 +2,7 @@ const Koa = require('koa')
 const app = new Koa()
 
 const mongoose= require('mongoose')
-const {connet,initSchemas} = require('./dataBase/init')
+const {connet} = require('./dataBase/init')
 
 const Router = require('koa-router')
 const user = require('./routes/user')
@@ -24,25 +24,10 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 
+
+// 链接数据库
 ;(async ()=>{
   await connet()
-  initSchemas()
-
-//   let userModel = mongoose.model('users')
-
-//   let newUser = new userModel({
-//     userName:"Bssey7",
-//     password:"1234568",
-//   })
-
-//   newUser.save().then(()=>{
-//     console.log('success')
-//   }).catch((error)=>{
-//     console.dir(error)
-//   })
-
-
-
 })()
 
 

@@ -4,11 +4,7 @@ const glob = require('glob')
 const {resolve} = require('path')
 
 module.exports = {
-  initSchemas: function () {
-    glob
-      .sync(resolve(__dirname, './schema', '**/*.js'))
-      .forEach(require)
-  },
+  
   connet: function () {
 
     mongoose.connect(db)
